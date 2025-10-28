@@ -21,9 +21,9 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@agenda-facil-app/db": "workspace:*",
     "better-auth": "catalog:",
     "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@agenda-facil-app/db": "workspace:*"
+    "zod": "catalog:"
   }
 }
