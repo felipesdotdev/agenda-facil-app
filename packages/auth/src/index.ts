@@ -23,6 +23,7 @@ export const auth = betterAuth<BetterAuthOptions>({
       sameSite: "none",
       secure: true,
       httpOnly: true,
+      domain: ".felipes.dev",
     },
   },
   plugins: [admin()],
