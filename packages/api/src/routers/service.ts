@@ -8,7 +8,7 @@ const MIN_DURATION_MINUTES = 15;
 const MAX_DURATION_MINUTES = 480;
 
 export const serviceRouter = router({
-  // Listar todos os serviços ativos ordenados por displayOrder
+  // Listar todos os serviços ativos
   getAll: publicProcedure.query(
     async () =>
       await db

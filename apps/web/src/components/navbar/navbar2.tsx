@@ -1,5 +1,5 @@
 "use client";
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { Root as NavigationMenuPrimitiveRoot } from "@radix-ui/react-navigation-menu";
 import {
   Building2,
   Calculator,
@@ -35,15 +35,15 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-interface MenuItem {
+type MenuItem = {
   title: string;
   url: string;
   description?: string;
   icon?: React.ReactNode;
   items?: MenuItem[];
-}
+};
 
-interface Navbar2Props {
+type Navbar2Props = {
   logo?: {
     url: string;
     src: string;
@@ -61,7 +61,7 @@ interface Navbar2Props {
       url: string;
     };
   };
-}
+};
 
 const Navbar2 = ({
   logo = {
@@ -110,19 +110,19 @@ const Navbar2 = ({
           title: "WhatsApp",
           description: "Fale conosco pelo WhatsApp",
           icon: <MessageCircle className="size-5 shrink-0" />,
-          url: "https://wa.me/5519999999999",
+          url: "https://wa.me/5519958711160",
         },
         {
           title: "Telefone",
-          description: "Ligue para (19) 99999-9999",
+          description: "Ligue para +55 (19) 95871-1160",
           icon: <Phone className="size-5 shrink-0" />,
-          url: "tel:+5519999999999",
+          url: "tel:+5519958711160",
         },
         {
-          title: "Endereço",
-          description: "Rua das Flores, 123 - Piracicaba/SP",
+          title: "Email",
+          description: "contato@felipes.dev",
           icon: <Building2 className="size-5 shrink-0" />,
-          url: "#contato",
+          url: "mailto:contato@felipes.dev",
         },
         {
           title: "Horário",
@@ -315,11 +315,11 @@ const NavigationMenuWithoutViewport = ({
   children,
   viewport = true,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
+}: React.ComponentProps<typeof NavigationMenuPrimitiveRoot> & {
   viewport?: boolean;
 }) => {
   return (
-    <NavigationMenuPrimitive.Root
+    <NavigationMenuPrimitiveRoot
       className={cn(
         "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
         className
@@ -331,7 +331,7 @@ const NavigationMenuWithoutViewport = ({
       {children}
       {/* The Viewport needs to be removed to center align submenus under their parents. You could remove this from the shadcn/ui component */}
       {/* {viewport && <NavigationMenuViewport />} */}
-    </NavigationMenuPrimitive.Root>
+    </NavigationMenuPrimitiveRoot>
   );
 };
 

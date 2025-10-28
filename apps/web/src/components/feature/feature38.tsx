@@ -12,7 +12,7 @@ const Feature38 = () => (
             <Calendar className="size-6 text-primary" />
           </span>
           <h1 className="mt-8 mb-2 text-pretty font-bold text-2xl lg:text-4xl">
-            Por que escolher o Agenda Fácil?
+            Por que escolher a Agenda Fácil?
           </h1>
           <p className="mb-5 text-muted-foreground">
             Nossa plataforma foi desenvolvida especificamente para simplificar o
@@ -40,11 +40,14 @@ const Feature38 = () => (
             </li>
           </ul>
         </div>
-        <img
-          alt="placeholder"
-          className="max-h-96 w-full rounded-md object-cover lg:max-h-none lg:w-1/2"
-          src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-        />
+        <div className="flex max-h-96 w-full items-center justify-center rounded-md bg-linear-to-br from-primary/10 to-primary/5 lg:max-h-none lg:w-1/2">
+          <div className="p-8 text-center">
+            <Calendar className="mx-auto mb-4 h-24 w-24 text-primary opacity-20" />
+            <p className="text-muted-foreground text-sm">
+              Serviços contábeis de qualidade
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

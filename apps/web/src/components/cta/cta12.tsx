@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-interface Cta12Props {
+type Cta12Props = {
   heading?: string;
   description?: string;
   buttons?: {
@@ -14,7 +14,7 @@ interface Cta12Props {
       url: string;
     };
   };
-}
+};
 
 const Cta12 = ({
   heading = "Pronto para Agendar?",
@@ -26,7 +26,7 @@ const Cta12 = ({
     },
     secondary: {
       text: "Falar no WhatsApp",
-      url: "https://wa.me/5519999999999",
+      url: "https://wa.me/5519958711160",
     },
   },
 }: Cta12Props) => {

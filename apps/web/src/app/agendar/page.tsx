@@ -211,11 +211,11 @@ export default function AgendarPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">(19) 99999-9999</span>
+                  <span className="text-sm">+55 (19) 95871-1160</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">contato@agendafacil.com</span>
+                  <span className="text-sm">contato@felipes.dev</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-muted-foreground" />
@@ -351,7 +351,7 @@ export default function AgendarPage() {
                           id="phone"
                           {...form.register("phone")}
                           onChange={handlePhoneChange}
-                          placeholder="(19) 99999-9999"
+                          placeholder="+55 (19) 95871-1160"
                         />
                         {form.formState.errors.phone && (
                           <p className="mt-1 text-red-600 text-sm">

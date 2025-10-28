@@ -3,20 +3,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-interface Contact2Props {
+type Contact2Props = {
   title?: string;
   description?: string;
   phone?: string;
   email?: string;
   web?: { label: string; url: string };
-}
+};
 
 const Contact2 = ({
   title = "Entre em Contato",
   description = "Estamos disponíveis para esclarecer dúvidas, fornecer orçamentos ou agendar consultas. Entre em contato conosco e descubra como podemos ajudar sua empresa!",
-  phone = "(19) 99999-9999",
-  email = "contato@agendafacil.com.br",
-  web = { label: "agendafacil.com.br", url: "https://agendafacil.com.br" },
+  phone = "+55 (19) 95871-1160",
+  email = "contato@felipes.dev",
+  web = { label: "felipes.dev", url: "https://felipes.dev" },
 }: Contact2Props) => (
   <section className="py-32">
     <div className="container mx-auto max-w-7xl px-4 py-2">
@@ -51,7 +51,7 @@ const Contact2 = ({
               </li>
               <li>
                 <span className="font-bold">Endereço: </span>
-                Rua das Flores, 123 - Piracicaba/SP
+                Consulta agendada virtualmente ou presencial
               </li>
               <li>
                 <span className="font-bold">Horário: </span>

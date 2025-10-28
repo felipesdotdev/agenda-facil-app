@@ -1,5 +1,8 @@
 {
   "name": "agenda-facil-app",
+  "version": "1.0.0",
+  "description": "Sistema de agendamento online para serviços contábeis",
+  "author": "Luis Felipe Ribeiro da Silva",
   "private": true,
   "type": "module",
   "workspaces": {

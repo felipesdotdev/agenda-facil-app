@@ -1,13 +1,7 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  MessageCircle,
-  Phone,
-} from "lucide-react";
-import type React from "react";
+import { MessageCircle, Phone } from "lucide-react";
+import Image from "next/image";
 
-interface Footer7Props {
+type Footer7Props = {
   logo?: {
     url: string;
     src: string;
@@ -29,7 +23,7 @@ interface Footer7Props {
     name: string;
     href: string;
   }>;
-}
+};
 
 const defaultSections = [
   {
@@ -64,28 +58,13 @@ const defaultSections = [
 const defaultSocialLinks = [
   {
     icon: <MessageCircle className="size-5" />,
-    href: "https://wa.me/5519999999999",
+    href: "https://wa.me/5519958711160",
     label: "WhatsApp",
   },
   {
     icon: <Phone className="size-5" />,
-    href: "tel:+5519999999999",
+    href: "tel:+5519958711160",
     label: "Telefone",
-  },
-  {
-    icon: <Instagram className="size-5" />,
-    href: "https://instagram.com/agendafacil",
-    label: "Instagram",
-  },
-  {
-    icon: <Facebook className="size-5" />,
-    href: "https://facebook.com/agendafacil",
-    label: "Facebook",
-  },
-  {
-    icon: <Linkedin className="size-5" />,
-    href: "https://linkedin.com/company/agendafacil",
-    label: "LinkedIn",
   },
 ];
 
@@ -104,7 +83,7 @@ const Footer7 = ({
   sections = defaultSections,
   description = "Sistema de agendamento online para serviços contábeis. Simplifique sua vida contábil com praticidade, segurança e eficiência.",
   socialLinks = defaultSocialLinks,
-  copyright = "© 2024 Agenda Fácil. Todos os direitos reservados.",
+  copyright = `© ${new Date().getFullYear()} Luis Felipe Ribeiro da Silva. Todos os direitos reservados.`,
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
@@ -115,11 +94,13 @@ const Footer7 = ({
             {/* Logo */}
             <div className="flex items-center gap-2 lg:justify-start">
               <a href={logo.url}>
-                <img
+                <Image
                   alt={logo.alt}
-                  className="h-8"
+                  className="h-8 w-8"
+                  height={32}
                   src={logo.src}
                   title={logo.title}
+                  width={32}
                 />
               </a>
               <h2 className="font-semibold text-xl">{logo.title}</h2>

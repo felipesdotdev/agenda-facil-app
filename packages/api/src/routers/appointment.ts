@@ -16,7 +16,7 @@ const BUSINESS_HOUR_END = 18;
 const MAX_APPOINTMENTS_PER_QUERY = 50;
 
 export const appointmentRouter = router({
-  // Listar todos os agendamentos (público para teste)
+  // Listar todos os agendamentos
   getAll: publicProcedure.query(
     async () =>
       await db

@@ -39,17 +39,17 @@ const Service6 = () => {
 
   const stats = [
     {
-      icon: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/adobe-icon.png",
+      icon: Users,
       title: "500+",
       description: "Clientes atendidos",
     },
     {
-      icon: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/figma-icon.svg",
+      icon: FileText,
       title: "10+",
       description: "Anos de experiência",
     },
     {
-      icon: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/sketch-icon.svg",
+      icon: Shield,
       title: "100%",
       description: "Satisfação garantida",
     },
@@ -88,12 +88,8 @@ const Service6 = () => {
         {/* Icon and Intro */}
         <div className="mb-12 space-y-8 text-center">
           <div className="flex justify-center">
-            <div className="rounded-lg bg-muted p-4">
-              <img
-                alt="UX/UI Design"
-                className="h-12 dark:invert"
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/symbols/ux.svg"
-              />
+            <div className="rounded-lg bg-primary/10 p-4">
+              <Calculator className="h-12 w-12 text-primary" />
             </div>
           </div>
 
@@ -116,26 +112,25 @@ const Service6 = () => {
             Nossa Experiência
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {stats.map((stat, index) => (
-              <div
-                className="rounded-lg bg-muted/50 p-6 text-center"
-                key={index}
-              >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center">
-                  <img
-                    alt={stat.title}
-                    className="h-8 w-8 object-contain"
-                    src={stat.icon}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <div className="font-medium text-sm">{stat.title}</div>
-                  <div className="text-muted-foreground text-xs">
-                    {stat.description}
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  className="rounded-lg bg-muted/50 p-6 text-center"
+                  key={index}
+                >
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="font-medium text-sm">{stat.title}</div>
+                    <div className="text-muted-foreground text-xs">
+                      {stat.description}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

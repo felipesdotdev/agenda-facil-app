@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "agenda-facil-app",
-  description: "agenda-facil-app",
+  title: "Agenda Fácil - Agendamento de Serviços Contábeis",
+  description:
+    "Agende seus serviços contábeis online de forma simples e rápida. Declaração de IR, abertura de empresa, consultoria fiscal e muito mais.",
+  keywords:
+    "agendamento, contabilidade, impostos, declaração de renda, abertura de empresa",
+  authors: [{ name: "Luis Felipe Ribeiro da Silva" }],
 };
 
 export default function RootLayout({
