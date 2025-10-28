@@ -1,9 +1,0 @@
-{
-  "build": {
-    "cmd": "bun run build:server"
-  },
-  "run": {
-    "cmd": "bun run apps/server/dist/index.js"
-  }
-}
-
