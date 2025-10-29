@@ -47,7 +47,7 @@ Muitos escritórios contábeis ainda dependem exclusivamente do telefone para ag
 
 ### Backend
 - **[Hono](https://hono.dev/)** - Framework web rápido e leve
-- **[oRPC](https://orpc.unnoq.com/)** - RPC type-safe
+- **[tRPC](https://trpc.io/)** - RPC type-safe end-to-end
 - **[Drizzle ORM](https://orm.drizzle.team/)** - ORM TypeScript-first
 - **[PostgreSQL](https://www.postgresql.org/)** - Banco de dados relacional
 - **[Better-auth](https://better-auth.com/)** - Autenticação moderna
@@ -61,15 +61,16 @@ Muitos escritórios contábeis ainda dependem exclusivamente do telefone para ag
 
 ```
 agenda-facil-app/
-├── apps/web/                # Frontend Next.js
-│   ├── src/app/            # App Router pages
-│   ├── src/components/     # Componentes reutilizáveis
-│   └── src/lib/            # Utilitários
+├── apps/
+│   ├── web/                # Frontend Next.js
+│   │   ├── src/app/        # App Router pages
+│   │   ├── src/components/ # Componentes reutilizáveis
+│   │   └── src/lib/        # Utilitários
+│   └── server/             # Backend Hono + tRPC
 ├── packages/
-│   ├── api/                # Backend Hono + oRPC
+│   ├── api/                # tRPC routers e context
 │   ├── auth/               # Better-auth config
-│   ├── db/                 # Drizzle schema + migrations
-│   └── ui/                 # Componentes compartilhados
+│   └── db/                 # Drizzle schema + migrations
 ```
 
 ## ⚡ Instalação e Uso
@@ -96,24 +97,28 @@ npm install
 
 ### 3. Configure as variáveis de ambiente
 ```
-# Copie o arquivo de exemplo
-cp .env.example .env.local
+# Copiar arquivos de exemplo
+cp apps/server/.env.example apps/server/.env
+cp apps/web/.env.example apps/web/.env
 
-# Configure suas variáveis:
-DATABASE_URL="postgresql://...."
-BETTER_AUTH_SECRET="your-secret-key"
-BETTER_AUTH_URL="http://localhost:3000"
+# Edite os arquivos .env com suas configurações:
+# - DATABASE_URL: string de conexão PostgreSQL
+# - BETTER_AUTH_SECRET: chave secreta para autenticação
+# - BETTER_AUTH_URL: URL do backend (http://localhost:3000)
+# - CORS_ORIGIN: URL do frontend (http://localhost:3001)
+# - NEXT_PUBLIC_SERVER_URL: URL pública do backend
 ```
 
 ### 4. Configure o banco de dados
 ```
-# Gerar schema
-bun db:generate
+# Aplicar schema (desenvolvimento - mais rápido)
+bun db:push
 
-# Executar migrations
-bun db:migrate
+# OU usar migrations (produção)
+bun db:generate  # Gerar migrations
+bun db:migrate  # Executar migrations
 
-# Popular com dados de exemplo
+# Popular com dados de exemplo (opcional)
 bun db:seed
 ```
 
@@ -128,8 +133,9 @@ bun start
 ```
 
 ### 6. Acesse a aplicação
-- **Frontend:** http://localhost:3000
-- **Admin:** http://localhost:3000/admin
+- **Frontend:** http://localhost:3001
+- **Backend API:** http://localhost:3000
+- **Dashboard:** http://localhost:3001/dashboard (requer login)
 
 ## 📋 Funcionalidades
 
@@ -141,20 +147,21 @@ bun start
 - [x] Interface responsiva
 
 ### Para Administradores
-- [x] Sistema de autenticação
-- [x] Dashboard com estatísticas
-- [x] Lista de agendamentos
-- [x] Filtros por data e status
-- [x] Ações (confirmar/cancelar/remarcar)
-- [x] Interface administrativa completa
+- [x] Sistema de autenticação com Better-auth
+- [x] Dashboard administrativo completo
+- [x] Gestão de serviços contábeis
+- [x] Lista e filtros de agendamentos
+- [x] Bloqueio de horários
+- [x] Configurações do sistema
+- [x] Interface administrativa responsiva
 
 ### Técnicas
-- [x] API REST type-safe com oRPC
+- [x] API type-safe end-to-end com tRPC
 - [x] Validação robusta com Zod
-- [x] Persistência com PostgreSQL
-- [x] Deploy automático na Vercel
-- [x] Performance otimizada
-- [x] Autenticação segura
+- [x] Persistência com PostgreSQL via Drizzle ORM
+- [x] Autenticação segura com Better-auth
+- [x] Performance otimizada com Turborepo
+- [x] Monorepo com workspaces
 
 ## 🎨 Design System
 
@@ -169,22 +176,23 @@ Baseado no **shadcn/ui** com customizações específicas para o domínio contá
 
 ## 🚀 Deploy
 
-### Vercel (Recomendado)
-```
-# Instalar Vercel CLI
-npm i -g vercel
+### Deploy
 
-# Deploy
-vercel --prod
-```
+Este projeto foi estruturado usando o **Better-T-Stack** e está pronto para deploy em várias plataformas.
 
-### Docker
-```
-# Build da imagem
-docker build -t agenda-facil .
+#### Frontend (Next.js)
+- **Vercel** (recomendado)
+- **Netlify**
+- **Railway**
 
-# Executar container
-docker run -p 3000:3000 agenda-facil
+#### Backend (Hono)
+- **Railway** (recomendado)
+- **Fly.io**
+- **Cloudflare Workers**
+
+Para deploy completo, configure as variáveis de ambiente e execute:
+```bash
+bun run build
 ```
 
 ## 🤝 Contribuição
@@ -215,7 +223,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Luis Felipe Ribeiro da Silva**
 - GitHub: [@felipesdotdev](https://github.com/felipesdotdev)
-- LinkedIn: [Luis Felipe](https://linkedin.com/in/luisfelipe)
+- LinkedIn: [Luis Felipe](https://linkedin.com/in/felipesdev)
 - Email: contato@felipes.dev
 
 ---
